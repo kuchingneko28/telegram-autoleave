@@ -18,7 +18,7 @@ module.exports = async (apiId, apiHash, whitelist) => {
               channel: dialog.id.value,
             })
           );
-          console.log(`Leave ${dialog.entity.username} | ID : ${dialog.id.value}`);
+          console.log(`Leave ${dialog.entity.title} | ID : ${dialog.id.value}`);
         }
       } catch (err) {
         console.log("Something is not right!");
