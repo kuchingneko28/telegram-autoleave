@@ -12,7 +12,7 @@ module.exports = async (apiId, apiHash, whitelist) => {
     const dialogs = await client.getDialogs();
     for (let dialog of dialogs) {
       try {
-        if (dialog.isGroup && dialog.isChannel && !whitelist.includes(dialog.entity.username)) {
+        if ((dialog.isChannel || dialog.isGroup) && !whitelist.includes(dialog.entity.username)) {
           const result = await client.invoke(
             new Api.channels.LeaveChannel({
               channel: dialog.id.value,
