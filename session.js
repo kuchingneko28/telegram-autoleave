@@ -1,7 +1,7 @@
 const { TelegramClient } = require("telegram");
 const { StringSession } = require("telegram/sessions");
 const fs = require("fs");
-const input = require("input"); // npm i input
+const input = require("input");
 
 module.exports = async (apiId, apiHash) => {
   const stringSession = new StringSession(""); // fill this later with the value from session.save()
@@ -18,9 +18,10 @@ module.exports = async (apiId, apiHash) => {
 
   fs.writeFile("session.txt", client.session.save(), (err) => {
     if (err) console.log(err);
-    else {
-      console.log("Session written successfully\n");
-    }
+
+    console.log("Session written successfully\n");
+    console.log("Now run npm run start again..");
+    process.exit(0);
   });
   client.disconnect();
 };
